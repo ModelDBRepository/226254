@@ -1,0 +1,46 @@
+
+This is a model of a midbrain dopamine neuron presented in the paper
+
+Tarfa RA, Evans RC, Khaliq ZM (2017) Enhanced sensitivity to
+hyperpolarizing inhibition in mesoaccumbal relative to nigrostriatal
+dopamine neuron subpopulations. J Neurosci
+
+This model was contributed by Dr R Evans and requires the GENESIS
+simulator which is freely available from:
+http://genesis-sim.org/
+
+To run simulations as seen in figure 11, run "RunCell.g" from the
+genesis simulation environment.
+
+Default settings are:
+
+An A-type potassium channel with a slow inactivation time constant
+(200ms), which can be changed in the file
+DACell/channels/Kaf.g
+
+The other default settings which are altered in the paper are the Ih
+gmax = 0.5 S/m^2 and the T-type Ca channel permeability = 1e-7 cm/s
+(both in globals.g).
+
+Together these default settings make a 'VTA-like' midbrain dopamine neuron. 
+
+When changing inactivation time constant for current clamp
+simulations, the Gmax (in DAcell/globals.g) for the Kaf channel was
+adjusted to make the peak currents similar in a single compartment
+voltage clamp simulation.
+
+The tau and gmax correspondance is:
+tau=200ms, gmax= 24.5 S/m^s
+tau=150ms, gmax= 24.5 S/m^s
+tau=100ms, gmax= 25 S/m^s
+tau=50ms, gmax= 27.5 S/m^s
+tau=25ms, gmax= 32 S/m^s
+
+Again, the tau is changed in the channel file (Kaf.g) and the gmax is
+changed in the globals file (globals.g)
+
+GABA stimulation simulations can be run by un-commenting
+"include DAstims/GABAstim.g" in RunCell.g
+
+
+
